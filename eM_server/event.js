@@ -31,12 +31,18 @@ const showevent=(usercode)=>{
     return db.Event.find({usercode})
     .then(user=>{
         if(user){
+            console.log(user);
             return{
                 statuscode:202,
                 status:true,
                 data:user
             }
-        }
+        }else{
+            return{
+            statuscode:404,
+                status:false,
+                message:""
+        }}
 })
 }
 const showdelete=(usercode)=>{

@@ -2,12 +2,16 @@ const express=require('express')
 const auth=require('./auth')
 const ev=require('./event')
 const {User}=require('./db')
+const cors=require('cors')
 
 
 const app=express()
 
 app.use(express.json())
 
+app.use(cors({
+  origin:"http://localhost:4200"
+}))
 
 const appMiddleware=(req,res,next)=>{
     console.log('app specific middleware');
@@ -33,7 +37,7 @@ app.post("/login",(req,res)=>{
   })  
 })
 app.post("/addevent",(req,res)=>{
-  ev.addevent(req.body.usercode,req.body.name,req.body.date)
+  ev.addevent(req.body.usercode,req.body.ename,req.body.edate)
   .then(user=>{
     if(user){
         res.status(user.statuscode).json(user)

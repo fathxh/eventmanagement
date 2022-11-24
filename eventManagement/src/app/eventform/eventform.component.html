@@ -1,0 +1,16 @@
+<div class="col-md-7 col-sm-12" *ngIf="item">
+    <div class="login-form">
+       <form>
+          <div class="form-group">
+             <label>Event Name</label>
+             <input type="text" [(ngModel)]="ename" name="ename" class="form-control" placeholder="name">
+          </div>
+          <div class="form-group">
+             <label>Date</label>
+             <input type="date" [(ngModel)]="edate" name="edate" class="form-control" placeholder="">
+          </div>
+          <button (click)="add()" class="btn btn-black">Add</button>
+          <button (click)="cancel()" class="btn btn-secondary ms-4">Cancel</button>
+       </form>
+    </div>
+ </div>

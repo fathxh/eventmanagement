@@ -60,8 +60,9 @@ const login=(email,password)=>{
                 statuscode:203,
                 status:true,
                 message:"login success",
-                currentname:cur_name,
-                currentusercode:cur_usercode
+                name:cur_name,
+                usercode:cur_usercode,
+                email:user.email
 
             }
         }else{
