@@ -14,8 +14,7 @@ const addevent=(usercode,ename,date)=>{
             const newEvent=new db.Event({
                 usercode,
                 name:ename,
-                date,
-                deleted:[]
+                date
             })
             newEvent.save()
             return{
@@ -28,4 +27,70 @@ const addevent=(usercode,ename,date)=>{
     })
 }
 
-module.exports={addevent}
+const showevent=(usercode)=>{
+    return db.Event.find({usercode})
+    .then(user=>{
+        if(user){
+            return{
+                statuscode:202,
+                status:true,
+                data:user
+            }
+        }
+})
+}
+const showdelete=(usercode)=>{
+    return db.Delete.find({usercode})
+    .then(user=>{
+        if(user){
+            return{
+                statuscode:202,
+                status:true,
+                data:user
+            }
+        }
+})
+}
+
+const delevent=(usercode,ename,date)=>{
+    
+    const newDelete=new db.Delete({
+        usercode,
+        name:ename,
+        date
+    })
+    newDelete.save()
+    return db.Event.deleteOne({usercode,name:ename})
+    .then(user=>{
+        if(user){
+
+            
+
+            return{
+                statuscode:203,
+                status:true,
+                message:"Event Deleted successfully"
+            }
+        }
+
+    })
+}
+const remove=(usercode,ename)=>{
+    
+    return db.Delete.deleteOne({usercode,name:ename})
+    .then(user=>{
+        if(user){
+
+            
+
+            return{
+                statuscode:203,
+                status:true,
+                message:"Event Deleted successfully"
+            }
+        }
+
+    })
+}
+
+module.exports={addevent,delevent,showevent,showdelete,remove}

@@ -14,13 +14,12 @@ const User=mongoose.model('User',{
 const Event=mongoose.model('Event',{
     usercode:String,
     name:String,
-    date:String,
-    deleted:Array
+    date:String
 })
-// const Delete=mongoose.model('Delete',{
-//     usercode:String,
-//     name:String,
-//     date:String
-// })
+const Delete=mongoose.model('Delete',{
+    usercode:String,
+    name:String,
+    date:String
+})
 
-module.exports={User,Event}
+module.exports={User,Event,Delete}

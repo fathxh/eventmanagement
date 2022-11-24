@@ -40,6 +40,38 @@ app.post("/addevent",(req,res)=>{
     }
   })  
 })
+app.delete("/delevent",(req,res)=>{
+  ev.delevent(req.body.usercode,req.body.name,req.body.date)
+  .then(user=>{
+    if(user){
+        res.status(user.statuscode).json(user)
+    }
+  })  
+})
+app.delete("/remove",(req,res)=>{
+  ev.remove(req.body.usercode,req.body.name)
+  .then(user=>{
+    if(user){
+        res.status(user.statuscode).json(user)
+    }
+  })  
+})
+app.post("/showevent",(req,res)=>{
+  ev.showevent(req.body.usercode)
+  .then(user=>{
+    if(user){
+        res.status(user.statuscode).json(user)
+    }
+  })  
+})
+app.post("/showdelete",(req,res)=>{
+  ev.showdelete(req.body.usercode)
+  .then(user=>{
+    if(user){
+        res.status(user.statuscode).json(user)
+    }
+  })  
+})
 
 
 
