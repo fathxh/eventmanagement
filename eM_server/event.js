@@ -31,6 +31,7 @@ const showevent=(usercode)=>{
     return db.Event.find({usercode})
     .then(user=>{
         if(user){
+
             console.log(user);
             return{
                 statuscode:202,
@@ -41,7 +42,7 @@ const showevent=(usercode)=>{
             return{
             statuscode:404,
                 status:false,
-                message:""
+                message:"Can't get Data"
         }}
 })
 }
@@ -69,30 +70,39 @@ const delevent=(usercode,ename,date)=>{
     return db.Event.deleteOne({usercode,name:ename})
     .then(user=>{
         if(user){
-
+console.log("user",user);
             
 
             return{
                 statuscode:203,
                 status:true,
-                message:"Event Deleted successfully"
+                message:"Event Deleted successfully",
+                count:user.deletedCount
             }
         }
 
     })
 }
-const remove=(usercode,ename)=>{
+const remove=(usercode,name)=>{
     
-    return db.Delete.deleteOne({usercode,name:ename})
+    return db.Delete.deleteOne({usercode,name})
     .then(user=>{
         if(user){
+            console.log("user",user);
 
             
 
             return{
                 statuscode:203,
                 status:true,
-                message:"Event Deleted successfully"
+                message:"Event Deleted successfully",
+                count:user.deletedCount
+            }
+        }else{
+            return{
+                statuscode:405,
+                status:false,
+                message:"Delete failed"
             }
         }
 

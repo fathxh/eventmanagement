@@ -1,1 +1,22 @@
-<p>deleted works!</p>
+<app-navbar></app-navbar>
+
+<div class="container" *ngIf="data.length!=0">
+    <div class="row col-md-6 col-md-offset-2 custyle m-auto">
+    <table class="table table-striped custab align-cente">
+    <thead>
+        <tr>
+            <th>User code</th>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+            <tr *ngFor="let i of data">
+                <td>{{i.usercode}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.date}}</td>
+                <td class="text-center"><a (click)="delevent(i.name)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+            </tr>
+    </table>
+    </div>
+</div>

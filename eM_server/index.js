@@ -44,7 +44,7 @@ app.post("/addevent",(req,res)=>{
     }
   })  
 })
-app.delete("/delevent",(req,res)=>{
+app.post("/delevent",(req,res)=>{
   ev.delevent(req.body.usercode,req.body.name,req.body.date)
   .then(user=>{
     if(user){
@@ -52,7 +52,7 @@ app.delete("/delevent",(req,res)=>{
     }
   })  
 })
-app.delete("/remove",(req,res)=>{
+app.post("/remove",(req,res)=>{
   ev.remove(req.body.usercode,req.body.name)
   .then(user=>{
     if(user){
