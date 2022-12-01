@@ -3,14 +3,18 @@
        <form>
           <div class="form-group">
              <label>Event Name</label>
-             <input type="text" [(ngModel)]="ename" name="ename" class="form-control" placeholder="name">
+             <input type="text" [(ngModel)]="ename" name="ename" class="form-control" placeholder="name" required>
           </div>
           <div class="form-group">
              <label>Date</label>
-             <input type="date" [(ngModel)]="edate" name="edate" class="form-control" placeholder="">
+             <input type="date" [(ngModel)]="edate" name="edate" class="form-control" placeholder="" required>
           </div>
-          <button (click)="add()" class="btn btn-black">Add</button>
-          <button (click)="cancel()" class="btn btn-secondary ms-4">Cancel</button>
+          <div class="form-group">
+             <label>usercode</label>
+             <input type="text"  name="usercode" class="form-control" [value]='usercode' disabled>
+          </div>
+          <button type="submit" (click)="add()" class="btn btn-black">Add</button>
+          <button type="submit" (click)="cancel()" class="btn btn-secondary ms-4">Cancel</button>
        </form>
     </div>
  </div>

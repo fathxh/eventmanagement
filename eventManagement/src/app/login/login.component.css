@@ -6,7 +6,7 @@ body {
 
 .outer{
     display: flex;
-    /* height: 100%; */
+    height: 660px;
 }
 .main-head{
     height: 150px;
@@ -15,12 +15,13 @@ body {
 }
 
 .sidenav {
-    height: 100%;
+    /* height: auto; */
     background-color: #000;
     overflow-x: hidden;
     padding-top: 20px;
     background-image: url('/assets/photos/login.jpg');
     background-size: cover;
+
 }
 
 
@@ -44,7 +45,8 @@ body {
 
 @media screen and (min-width: 768px){
     form{
-        margin-left: 45%; 
+        padding-top: 20%;
+        margin-left: 10%; 
         margin-right: 10%; 
     }
 
@@ -57,12 +59,12 @@ body {
      }
 
     .login-form{
-        margin-top: 35%;
+        margin-top: 15%;
     }
 
-    .register-form{
+    /* .register-form{
         margin-top: 20%;
-    }
+    } */
 }
 
 
@@ -84,4 +86,12 @@ body {
     background-color: #000 !important;
     color: #fff;
     margin-right: 5%;
+}
+#logpage{
+    border-radius: 10%;
+    background-color: #FFF;
+    height: 25em;
+    width: 25em;
+    box-shadow: 1px 1px 20px black;
+    margin-left: 25%;
 }

@@ -2,10 +2,12 @@
 
 <!-- Team -->
 <!-- (onAddedate)="edate($event)" (onAddusername)="usercode($event)" -->
+<div class="formdiv">
 <app-eventform [item]="flag" (onAdd)="add($event)"  (onCancel)="cancel()"></app-eventform>
+</div>
 <section id="team" class="pb-5">
     <div class="container" >
-        <h5 class="section-title h1">ADD EVENTS HERE</h5>
+        <h5 class="section-title h1">YOUR EVENTS</h5>
         <div class="row" *ngIf="data.length==0">
             <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4 m-auto">
@@ -19,12 +21,14 @@
                             </div>
                         </div>
                         <div class="backside">
+                            <a (click)="onadd()">
                             <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title font-size-large"> <a (click)="onadd()">   Click to Add Event  </a> </h4>
+                                <div class="card-body text-center p-auto">
+                                    <h4 class="card-title font-size-large">Click to Add Event </h4>
                                     
                                 </div>
                             </div>
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -45,19 +49,19 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container" *ngIf="data.length!=0">
-    <div class="row col-md-6 col-md-offset-2 custyle m-auto">
-    <table class="table table-striped custab align-cente">
+    <div class="row  col-md-offset-2 custyle">
+    <table class="table table-striped custab align-center">
     <thead>
-    <a (click)="onadd()" class="ms-auto btn btn-primary btn-xs pull-right"><b>+</b> Add new Event</a>
+    <a (click)="onadd()" class="ms-auto btn btn-primary btn-xs "><b>+</b> Add new Event</a>
         <tr>
-            <th class="m-auto text-center">User code</th>
-            <th class="m-auto text-center">Name</th>
+            <!-- <th class="m-auto text-center">User code</th> -->
+            <th class="m-auto text-center">Event Name</th>
             <th class="m-auto text-center">Date</th>
             <th class="text-center"></th>
         </tr>
     </thead>
             <tr *ngFor="let i of data">
-                <td class=" text-center">{{i.usercode}}</td>
+                <!-- <td class=" text-center">{{i.usercode}}</td> -->
                 <td class=" text-center">{{i.name}}</td>
                 <td class=" text-center">{{i.date}}</td>
                 <td class="text-center"><a (click)="delevent(i.name,i.date)" class="btn btn-danger"> Delete</a></td>

@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit{
     password:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]*'),Validators.minLength(4),Validators.maxLength(4)]],
     fname:['',[Validators.required]],
     lname:['',[Validators.required]],
-    dob:['',[Validators.required]],
+    dob:['',[Validators.required]]
   })
 
   constructor(private fb:FormBuilder,private db:AuthserviceService,private rout:Router){}
